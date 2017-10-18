@@ -23,4 +23,10 @@ angular.module('myApp', ['ui.router', 'oc.lazyLoad'])
           }]
         }
       })
+      .state("lazybar.**", {
+        url: "/lazybar",
+        lazyLoad: function (transition) {
+          return transition.injector().get('$ocLazyLoad').load('./lazyBar/lazyBar.js')
+        }
+      })
   });
